@@ -1,0 +1,9 @@
+.eggs/
+.idea/
+.pytest_cache/
+__pycache__/
+build/
+dist/
+tartiflette_request_context_hooks.egg-info/
+venv/
+.coverage
