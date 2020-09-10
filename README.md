@@ -62,22 +62,22 @@ Limited AIOHTTP setup example, imports and configuration kept to hook specific
 details:
 
 ```python
-from tartiflette_request_context_hooks.middleware.aiohttp import\
-    get_hooks_service_middleware
-
+from tartiflette_request_context_hooks.middleware import aiohttp
+from tartiflette_request_context_hooks import RequestContextHooks
 import MyContextHooks # your hook
 
-my_request_context_service = MyContextHooks(
-    my_hooks_params={},
+my_hook = RequestContextHooks(
+     context_manager=MyContextHooks(
+          my_hooks_params={},
+     ),
+     server_middleware=aiohttp    
 )
-my_request_session_middleware = get_hooks_service_middleware(
-    context_service=my_request_context_service
-)
+
 app = web.Application(middlewares=[
-    my_request_session_middleware
+    my_hook.middleware
 ])
 ctx = {
-    'my_session_service': my_request_context_service,
+    'my_session_service': my_hook.service,
 }
 web.run_app(
     register_graphql_handlers(
