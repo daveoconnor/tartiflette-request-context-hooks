@@ -2,36 +2,10 @@ from unittest.mock import MagicMock
 
 import pytest
 from tartiflette_request_context_hooks import BaseRequestContextHooks
-from tartiflette_request_context_hooks.base_request_context_hooks import RequestDataNotStoredException, \
-    RequestNotSetException
-
-
-class ConcreteRequestContextHooksNoLabel(BaseRequestContextHooks):
-    async def __aenter__(self):
-        pass
-
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
-        pass
-
-
-class ConcreteRequestContextHooks(BaseRequestContextHooks):
-    label = 'CAExample'
-
-    async def __aenter__(self):
-        pass
-
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
-        pass
-
-
-class ConcreteWorkingRequestContextHooks(BaseRequestContextHooks):
-    label = 'CAWorkingExample'
-
-    async def __aenter__(self):
-        await self.store_request_data('foo')
-
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
-        pass
+from tartiflette_request_context_hooks.base_request_context_hooks import \
+    RequestDataNotStoredException, RequestNotSetException
+from tests.sample_hooks import ConcreteWorkingRequestContextHooks,\
+    ConcreteRequestContextHooksNoLabel, ConcreteRequestContextHooks
 
 
 class TestBaseRequestContextHooks:
