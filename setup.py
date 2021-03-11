@@ -9,10 +9,10 @@ with open('README.md') as readme:
 
 setuptools.setup(
     name="tartiflette-request-context-hooks",
-    version="1.0.1",
+    version="2.0.0",
     author="Dave O'Connor",
     author_email="github@dead-pixels.org",
-    description="Framework for tartiflette request/resolver context data assignment",
+    description="DEPRECATED: Framework for tartiflette request/resolver context data assignment - use tartiflette-middleware instead",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/daveoconnor/tartiflette-request-context-hooks",

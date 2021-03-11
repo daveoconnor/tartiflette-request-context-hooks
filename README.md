@@ -1,10 +1,14 @@
 # Tartiflette Request Context Hooks
 
+DEPRECATED, MOVED TO [tartiflette-middleware](https://github.com/daveoconnor/tartiflette-middleware/).
+
 Framework to facilitate the creation of per-request context data for your
 resolvers using simple python context managers. 
 
 Allows for processing of request/response headers, dependent on the
 http server you're using.
+
+Deprecated only because that name suits better.
 
 ## Installation
 
